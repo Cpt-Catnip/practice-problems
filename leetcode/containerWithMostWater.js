@@ -9,7 +9,35 @@ Notice that you may not slant the container.
  * @param {number[]} height
  * @return {number}
  */
-var maxArea = function (height) {};
+var maxArea = function (height) {
+  // init vars
+  let maxArea = 0;
+  let left = 0;
+  let right = height.length - 1;
 
-const input = [1, 8, 6, 2, 5, 4, 8, 3, 7];
-console.log(maxArea(input));
+  // iterate over array
+  while (left < right) {
+    // calculate current area
+    const area = getArea(height, left, right);
+
+    // store new max area
+    maxArea = Math.max(area, maxArea);
+
+    // update pointers
+    height[left] < height[right] ? left++ : right--;
+  }
+
+  return maxArea;
+};
+
+const getArea = (arr, i, j) => {
+  const left = Math.min(i, j);
+  const right = Math.max(i, j);
+  return Math.min(arr[left], arr[right]) * (right - left);
+};
+
+/*
+Looked up solution.
+I should have gotten this one. This is an easy one and canonical problem.
+Don't be too hard on yourself. Learning is a journey.
+*/
