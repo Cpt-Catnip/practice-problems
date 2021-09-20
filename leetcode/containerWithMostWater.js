@@ -36,6 +36,8 @@ const getArea = (arr, i, j) => {
   return Math.min(arr[left], arr[right]) * (right - left);
 };
 
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+
 /*
 Looked up solution.
 I should have gotten this one. This is an easy one and canonical problem.
